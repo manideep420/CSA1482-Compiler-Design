@@ -1,0 +1,31 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+
+[A-Z]+      { printf("Capital word found: %s\n", yytext); }
+
+.|\n        { /* Ignore other characters */ }
+
+%%
+
+int main(void) {
+    yylex();
+    return 0;
+}
+
+int yywrap(void) {
+    return 1;
+}
+
+out put :
+
+C:\Users\sivas\OneDrive\Desktop\program>flex cap.l
+
+C:\Users\sivas\OneDrive\Desktop\program>gcc lex.yy.c
+
+C:\Users\sivas\OneDrive\Desktop\program>a.exe
+MY name is MANIDEEP
+Capital word found: MY
+Capital word found: MANIDEEP
